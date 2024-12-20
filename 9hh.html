@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Регистр символа</title>
+</head>
+<body>
+
+<label for="charInput">Введите символ:</label>
+<input type="text" id="charInput" maxlength="1"> <!-- ограничение на 1 символ -->
+<button onclick="checkCharacterCase()">Проверить регистр</button>
+<p id="result"></p>
+
+<script>
+function checkCharacterCase() {
+  const charInput = document.getElementById("charInput");
+  const resultParagraph = document.getElementById("result");
+
+  const char = charInput.value;
+
+
+  if (char.length !== 1 || !/^[a-zA-Z]$/.test(char)) {
+     resultParagraph.textContent = "Пожалуйста, введите один символ из латинского алфавита.";
+     return;
+  }
+
+  if (char === char.toUpperCase()) {
+    resultParagraph.textContent = `Символ ${char} в верхнем регистре.`;
+  } else {
+    resultParagraph.textContent = `Символ ${char} в нижнем регистре.`;
+  }
+}
+</script>
+
+</body>
+</html>
